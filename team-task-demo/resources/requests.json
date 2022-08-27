@@ -28,5 +28,11 @@
             "body": "this is the body description",
             "id": 2
         }
+    },
+	{
+        "body": null,
+        "url": "DELETE https://jsonplaceholder.typicode.com/posts/1",
+        "expectedStatusCode": "200",
+        "expectedResponseBody": {}
     }
 ]
