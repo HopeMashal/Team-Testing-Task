@@ -1,0 +1,6 @@
+Get requests route,expected status code
+https://jsonplaceholder.typicode.com/posts/1,400
+https://jsonplaceholder.typicode.com/comments?postId=test,404
+https://jsonplaceholder.typicode.com/comments?postId=10000,404
+https://jsonplaceholder.typicode.com/posts/3333/comments,404
+https://jsonplaceholder.typicode.com/posts/test/comments,404
