@@ -1,0 +1,32 @@
+[
+    {
+        "body": {
+            "userId": 10,
+            "title": "Nothing",
+            "body": "Nothing to add"
+        },
+        "url": "POST https://jsonplaceholder.typicode.com/posts",
+        "expectedStatusCode": "201",
+        "expectedResponseBody": {
+            "userId": 10,
+            "title": "Nothing",
+            "body": "Nothing to add",
+            "id": 101
+        }
+    },
+    {
+        "body": {
+            "userId": 1,
+            "title": "Something else",
+            "body": "this is the body description"
+        },
+        "url": "PUT https://jsonplaceholder.typicode.com/posts/2",
+        "expectedStatusCode": "200",
+        "expectedResponseBody": {
+            "userId": 1,
+            "title": "Something else",
+            "body": "this is the body description",
+            "id": 2
+        }
+    }
+]
