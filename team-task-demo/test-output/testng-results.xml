@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="9" passed="7" failed="2" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-08-27T16:17:15 IDT" name="Team Testing Task" finished-at="2022-08-27T16:17:21 IDT" duration-ms="5984">
+    <groups>
+    </groups>
+    <test started-at="2022-08-27T16:17:15 IDT" name="Data provider with csv and json file" finished-at="2022-08-27T16:17:21 IDT" duration-ms="5984">
+      <class name="teamtask.AppTest">
+        <test-method is-config="true" signature="beforeSuite(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:15 IDT" name="beforeSuite" finished-at="2022-08-27T16:17:15 IDT" duration-ms="23" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[./src/test/resources/output_JSON.json]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[./src/test/resources/output_CSV.csv]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:15 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:19 IDT" duration-ms="3126" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/posts]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:19 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:19 IDT" duration-ms="277" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/posts/1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:19 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:19 IDT" duration-ms="417" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/posts/102]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[404]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:19 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:20 IDT" duration-ms="259" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/posts/1/comments]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:20 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:20 IDT" duration-ms="433" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/posts/102/comments]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[404]]>
+              </value>
+            </param>
+          </params>
+          <exception class="junit.framework.AssertionFailedError">
+            <message>
+              <![CDATA[expected:<404> but was:<200>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[junit.framework.AssertionFailedError: expected:<404> but was:<200>
+at junit.framework.Assert.fail(Assert.java:50)
+at junit.framework.Assert.failNotEquals(Assert.java:287)
+at junit.framework.Assert.assertEquals(Assert.java:67)
+at junit.framework.Assert.assertEquals(Assert.java:199)
+at junit.framework.Assert.assertEquals(Assert.java:205)
+at teamtask.AppTest.testDataCSV(AppTest.java:44)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:806)
+at org.testng.TestRunner.run(TestRunner.java:601)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- junit.framework.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:20 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:20 IDT" duration-ms="255" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/comments?postId=1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:20 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:21 IDT" duration-ms="454" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/comments?postId=102]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[404]]>
+              </value>
+            </param>
+          </params>
+          <exception class="junit.framework.AssertionFailedError">
+            <message>
+              <![CDATA[expected:<404> but was:<200>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[junit.framework.AssertionFailedError: expected:<404> but was:<200>
+at junit.framework.Assert.fail(Assert.java:50)
+at junit.framework.Assert.failNotEquals(Assert.java:287)
+at junit.framework.Assert.assertEquals(Assert.java:67)
+at junit.framework.Assert.assertEquals(Assert.java:199)
+at junit.framework.Assert.assertEquals(Assert.java:205)
+at teamtask.AppTest.testDataCSV(AppTest.java:44)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:806)
+at org.testng.TestRunner.run(TestRunner.java:601)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- junit.framework.AssertionFailedError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:21 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:21 IDT" duration-ms="236" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[200]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+        <test-method signature="testDataCSV(java.lang.String,java.lang.String)[pri:0, instance:teamtask.AppTest@434a63ab]" started-at="2022-08-27T16:17:21 IDT" name="testDataCSV" data-provider="getDataCSV" finished-at="2022-08-27T16:17:21 IDT" duration-ms="440" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[/myPost/u3]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[404]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDataCSV -->
+      </class> <!-- teamtask.AppTest -->
+    </test> <!-- Data provider with csv and json file -->
+  </suite> <!-- Team Testing Task -->
+</testng-results>
