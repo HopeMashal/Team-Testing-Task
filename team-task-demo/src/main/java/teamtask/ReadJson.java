@@ -16,19 +16,19 @@ public class ReadJson {
 	String method;
 	String requestUrl;
 	
-	private void parseEmployeeObject(JSONObject request) {
+	void parseEmployeeObject(JSONObject request) {
 		this.expectedResponseBody = (Object) request.get("expectedResponseBody");
 		this.body = (Object) request.get("body");
 		this.expectedStatusCode = (String) request.get("expectedStatusCode");
-//		System.out.println("expectedStatusCode " + this.expectedStatusCode);
+		System.out.println("expectedStatusCode " + this.expectedStatusCode);
 		String url = (String) request.get("url");
-//		System.out.println("url " + url);
+		System.out.println("url " + url);
 		
 		String[] urlParts = url.split(" ");
 		this.method = urlParts[0];
-//		System.out.println("method " + method);
+		System.out.println("method " + method);
 		this.requestUrl = urlParts[1];
-//		System.out.println("requestUrl " + requestUrl);
+		System.out.println("requestUrl " + requestUrl);
 	}
 
 	public JSONArray readJsonFile(String filePath) {
@@ -40,8 +40,6 @@ public class ReadJson {
 			Object obj = jsonParser.parse(reader);
 
 			requestList = (JSONArray) obj;
-
-			requestList.forEach(req -> parseEmployeeObject((JSONObject) req));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
