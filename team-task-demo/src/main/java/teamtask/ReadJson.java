@@ -3,6 +3,8 @@ package teamtask;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,7 +18,19 @@ public class ReadJson {
 	String method;
 	String requestUrl;
 	
-	void parseEmployeeObject(JSONObject request) {
+	public static List<Object[]> parseList(String filePath) {
+		ReadJson reader = new ReadJson();
+		JSONArray requestList = reader.readJsonFile(filePath);
+		List<Object[]> data = new ArrayList<Object[]>();
+		Object[] str ;
+		for(Object req:requestList){
+			str = reader.parseObject((JSONObject) req);
+			data.add(str);
+		}
+		return data;
+	}
+
+	public Object[] parseObject(JSONObject request) {
 		this.expectedResponseBody = (Object) request.get("expectedResponseBody");
 		this.body = (Object) request.get("body");
 		this.expectedStatusCode = (String) request.get("expectedStatusCode");
@@ -29,6 +43,8 @@ public class ReadJson {
 		System.out.println("method " + method);
 		this.requestUrl = urlParts[1];
 		System.out.println("requestUrl " + requestUrl);
+		Object[] str = new Object[]{method,requestUrl,body,expectedStatusCode,expectedResponseBody};
+		return str;
 	}
 
 	public JSONArray readJsonFile(String filePath) {
