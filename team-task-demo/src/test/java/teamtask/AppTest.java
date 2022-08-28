@@ -2,6 +2,7 @@ package teamtask;
 
 import java.util.List;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -13,8 +14,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
-import junit.framework.Assert;
-
 
 public class AppTest 
 {
