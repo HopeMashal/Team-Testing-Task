@@ -2,6 +2,8 @@ package teamtask;
 
 import java.util.List;
 
+import org.json.JSONObject;
+import org.skyscreamer.jsonassert.JSONAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
@@ -70,7 +72,10 @@ public class AppTest
 	        Response response = request.post(Route); 
 	        ResponseBody body = response.getBody();
             Assert.assertEquals(Integer.parseInt(ExStatus), response.getStatusCode());
-            Assert.assertEquals(new Gson().toJson(ExBody), body.asString());
+            if(response.getStatusCode() >= 200 && response.getStatusCode() < 300){ 
+                JSONObject ExBodyJSON = new JSONObject(new Gson().toJson(ExBody));
+                JSONAssert.assertEquals(body.asString(),ExBodyJSON,false);
+            }
         } else if(Method.equals("PUT")){
             RestAssured.baseURI ="https://jsonplaceholder.typicode.com"; 
             RequestSpecification request = RestAssured.given().body(Body); 
@@ -78,11 +83,17 @@ public class AppTest
             Response response = request.put(Route); 
             ResponseBody body = response.getBody();
             Assert.assertEquals(Integer.parseInt(ExStatus), response.getStatusCode());
-            Assert.assertEquals(new Gson().toJson(ExBody), body.asString());
+            if(response.getStatusCode() >= 200 && response.getStatusCode() < 300){ 
+                JSONObject ExBodyJSON = new JSONObject(new Gson().toJson(ExBody));
+                JSONAssert.assertEquals(body.asString(),ExBodyJSON,false);
+            }
         } else if(Method.equals("DELETE")){
             Response response = RestAssured.delete("https://jsonplaceholder.typicode.com"+Route);
             Assert.assertEquals(Integer.parseInt(ExStatus), response.getStatusCode());
-            Assert.assertEquals(new Gson().toJson(ExBody), response.asString());
+            if(response.getStatusCode() >= 200 && response.getStatusCode() < 300){ 
+                JSONObject ExBodyJSON = new JSONObject(new Gson().toJson(ExBody));
+                JSONAssert.assertEquals(response.asString(),ExBodyJSON,false);
+            }
         }
     }
 }
