@@ -46,7 +46,7 @@ public class AppTest
     @Test(dataProvider = "getDataCSV")
     public void testDataCSV(String Route,String ExStatus){
         Response response = RestAssured.get("https://jsonplaceholder.typicode.com" + Route);
-        Assert.assertEquals(Integer.parseInt(ExStatus), response.getStatusCode());
+        Assert.assertEquals(response.getStatusCode(),Integer.parseInt(ExStatus));
     }
 
 
@@ -71,10 +71,11 @@ public class AppTest
 	        request.header("Content-Type", "application/json"); 
 	        Response response = request.post(Route); 
 	        ResponseBody body = response.getBody();
-            Assert.assertEquals(Integer.parseInt(ExStatus), response.getStatusCode());
+            Assert.assertEquals(response.getStatusCode(),Integer.parseInt(ExStatus));
             if(response.getStatusCode() >= 200 && response.getStatusCode() < 300){ 
-                JSONObject ExBodyJSON = new JSONObject(new Gson().toJson(ExBody));
-                JSONAssert.assertEquals(body.asString(),ExBodyJSON,false);
+                String ExBodyString = new Gson().toJson(ExBody);
+                JSONObject AcBodyJSON = new JSONObject(body.asString());
+                JSONAssert.assertEquals(ExBodyString,AcBodyJSON,false);
             }
         } else if(Method.equals("PUT")){
             RestAssured.baseURI ="https://jsonplaceholder.typicode.com"; 
@@ -82,17 +83,19 @@ public class AppTest
             request.header("Content-Type", "application/json"); 
             Response response = request.put(Route); 
             ResponseBody body = response.getBody();
-            Assert.assertEquals(Integer.parseInt(ExStatus), response.getStatusCode());
+            Assert.assertEquals(response.getStatusCode(),Integer.parseInt(ExStatus));
             if(response.getStatusCode() >= 200 && response.getStatusCode() < 300){ 
-                JSONObject ExBodyJSON = new JSONObject(new Gson().toJson(ExBody));
-                JSONAssert.assertEquals(body.asString(),ExBodyJSON,false);
+                String ExBodyString = new Gson().toJson(ExBody);
+                JSONObject AcBodyJSON = new JSONObject(body.asString());
+                JSONAssert.assertEquals(ExBodyString,AcBodyJSON,false);
             }
         } else if(Method.equals("DELETE")){
             Response response = RestAssured.delete("https://jsonplaceholder.typicode.com"+Route);
-            Assert.assertEquals(Integer.parseInt(ExStatus), response.getStatusCode());
+            Assert.assertEquals(response.getStatusCode(),Integer.parseInt(ExStatus));
             if(response.getStatusCode() >= 200 && response.getStatusCode() < 300){ 
-                JSONObject ExBodyJSON = new JSONObject(new Gson().toJson(ExBody));
-                JSONAssert.assertEquals(response.asString(),ExBodyJSON,false);
+                String ExBodyString = new Gson().toJson(ExBody);
+                JSONObject AcBodyJSON = new JSONObject(response.asString());
+                JSONAssert.assertEquals(ExBodyString,AcBodyJSON,false);
             }
         }
     }

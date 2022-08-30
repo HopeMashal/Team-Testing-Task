@@ -7,4 +7,9 @@
        <class name = "teamtask.AppTest" />
     </classes>
   </test>
+  <test  name = "Factory with csv and json file">
+    <classes>
+       <class name = "teamtask.FactoryClass" />
+    </classes>
+  </test>
 </suite>
